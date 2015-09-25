@@ -13,7 +13,7 @@ var PubSchema = new Schema ({
 	name: String,
 	location: String;
 
-})
+});
 
 //EXPORT SCHEMA
 //=============
