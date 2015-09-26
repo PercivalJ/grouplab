@@ -3,8 +3,8 @@
 
 //DECLARING VARIABLES
 //===================
-var = mongoose = require('mongoose')
-var = Schema = mongoose.Schema
+var mongoose 		= require( 'mongoose' )
+var Schema 			= mongoose.Schema
 
 
 //PUB SCHEMA
@@ -17,4 +17,4 @@ var PubSchema = new Schema ({
 
 //EXPORT SCHEMA
 //=============
-module.exports  = mongoose.model('Pub', PubSchema)
+module.exports  = mongoose.model( 'Pub', PubSchema );
