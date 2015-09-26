@@ -5,8 +5,8 @@
 //===================
 var express         = require( 'express' );
 var apiRouter       = express.Router();
-var usersController = require( '../controllers/users.js' );
-var User            = require( '../models.user.js' );
+var usersController = require( '../controllers/usersController.js' );
+var User            = require( '../models/user.js' );
 
 
 //ROUTING FUNCTIONS
