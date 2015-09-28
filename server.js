@@ -5,10 +5,12 @@ var express    = require( 'express' );
 var bodyParser = require( 'body-parser' );
 var app        = express();
 var apiRouter  = require('./routes/userRoutes' );
+var DB         = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/group_lab';
+var port       = process.env.PORT || 3000;
 
 //SETTING LOCATION OF DATABSE
 //===========================
-mongoose.connect( 'localhost:27017/group_lab' );
+mongoose.connect( DB );
 
 //APP CONFIGURATION
 //=================
@@ -23,5 +25,5 @@ app.use('/api', apiRouter );
 
 //SERVER RUN CONFIG
 //=================
-app.listen(3000)
-console.log("server is running on port 3000")
+app.listen( port );
+console.log("server is running on port " + port );
