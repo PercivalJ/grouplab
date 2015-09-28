@@ -12,10 +12,14 @@ var Pub 	= require( '../models/pub.js' )
 
 	//INDEX
 function index( req, res ){
-	Pub.find(function(err,pubs){
-		if( err ) res.send( err )
+	console.log( "In pubs index")
+	Pub.find(function( err , pubs ){
+		if( err ) {
+			res.json( "Error in pubs " + err );
+		} else {
 			res.json(pubs)
-	})
+		}
+	} );
 }
 	//CREATE
 function create(req, res){
@@ -24,19 +28,22 @@ function create(req, res){
 	pub.location = req.body.location;
 	//Save function and error check
 	pub.save(function(err){
-		if (err)
-			res.send(err);
-
-		res.json({ message: 'Pub Added! Let us drink!' });
+		if (err) {
+			res.json( err );
+		} else {
+			res.json({ message: 'Pub Added! Let us drink!' });
+		}
 	})
 }
 
 	//SHOW
 function show(req, res){
 	Pub.findById(req.params.pub_id, function(err, pub){
-		if (err)
-			res.send(err);
-		res.json(pub);
+		if (err) {
+			res.json( err );
+		} else {
+			res.json(pub);
+		}
 	})
 }
 
@@ -44,27 +51,27 @@ function show(req, res){
 	//UPDATE
 function update(req, res){
 	Pub.findById(req.params.pub_id, function(err, pub){
-		if (err)
-			res.send(err);
-		pub.name = req.body.name    //updates pub info
-		//save the pub
-		pub.save(function(err){
-			if (err)
-				res.send(err)
-			res.json({ message: 'Updated the Pub! Cheers' })
-		})
+		if ( err ) {
+			console.log( "Error thrown" );
+			res.json( "Hmmm.." + err );
+		} else {
+			console.log( "Yay it worked");
+			res.json( pub );
+		}
 	})
 }
 
 	//DESTROY - never destroy a pub in real life. that's sad.
 function destroy(req, res){
-	Pub.remove({
-		_id: req.params.pub_id
-	}), function(err, pub) {
-		if (err)
-			res.send(err)
-		res.json({ message: 'Pub was sadly deleted' })
-	} 
+	Pub.findById( req.params.pub_id, function( err, pub ) {
+		if ( err ) {
+			console.log( "Error thrown" );
+			res.json( "Hmmm.." + err );
+		} else {
+			console.log( "Yay it worked");
+			res.json( pub );
+		}
+	} );
 }
 
 

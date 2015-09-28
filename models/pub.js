@@ -11,8 +11,7 @@ var Schema 			= mongoose.Schema
 //===========
 var PubSchema = new Schema ({
 	name: String,
-	location: String;
-
+	location: String
 });
 
 //EXPORT SCHEMA

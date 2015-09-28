@@ -6,22 +6,22 @@
 //===================
 var express 			= require( 'express' );
 var apiRouter 			= express.Router();
-var pubsController 		= require( '../controllers/pubsController' );
-var Pub 				= require( '../models/Pub' );
+var pubsController 		= require( '../controllers/pubsController.js' );
+var Pub 				= require( '../models/pub.js' );
 
 
 //ROUTING FUNCTIONS
 //=================
 
-//middleware
-apiRouter.use(function(req, res, next) {
-    // do logging
-    console.log('Something is happening.');
-    next(); // make sure we go to the next routes and don't stop here
-}); //test route to see if things are working
-apiRouter.get('/', function(req, res) {
-    res.json({ message: 'hooray! welcome to our api!' });   
-});
+// //middleware
+// apiRouter.use(function(req, res, next) {
+//     // do logging
+//     console.log('Something is happening.');
+//     next(); // make sure we go to the next routes and don't stop here
+// }); //test route to see if things are working
+// apiRouter.get('/', function(req, res) {
+//     res.json({ message: 'hooray! welcome to our api!' });   
+// });
 
 //index get for api router 
 apiRouter.route( '/pubs' )
