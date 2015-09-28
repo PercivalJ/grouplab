@@ -4,15 +4,15 @@
 
 //DECLARING VARIABLES
 //===================
-var mongoose = require( 'monogoose'),
-var Schema = mongoose.Schema
+var mongoose = require( 'mongoose');
+var Schema = mongoose.Schema;
 
 
 //PUB SCHEMA
 //===========
 var coffeeShopSchema = new Schema ({
 	name: String,
-	location: String;
+	location: String
 });
 
 //EXPORT SCHEMA

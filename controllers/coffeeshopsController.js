@@ -11,15 +11,15 @@ var Coffeeshop 	= require( '../models/coffeeshop' )
 
 	//INDEX
 function index (req, res){
-	console.log( "Index function")
-	Coffeeshop.find(function(err,coffeeshops){
+	console.log( "coffee Index function")
+	Coffeeshop.find( function( err, coffeeshops ) {
 		if( err ) {
-			res.json( err )
+			res.json( "uh oh " + err )
 		} else {
 			res.json ( coffeeshops )
 		}
-	})
-}
+	} );
+};
 
 	//CREATE
 function create(req, res){
@@ -38,10 +38,10 @@ function create(req, res){
 
 	//SHOW 
 function show(req, res){
-	Coffeeshop.findById(req.params.coffeeshop_id, function(err, coffeeshop){
+	Coffeeshop.findById( req.params.coffeeshop_id.toString(), function( err, coffeeshop ) {
 		if (err) {
 			console.log("error");
-			res.json("error " + );
+			res.json("error " + err);
 		} else {
 			console.log("successful" + coffeeshop);
 			res.json( coffeeshop );
@@ -53,7 +53,7 @@ function show(req, res){
 //Updates coffeeshop info 
 function update( req, res ){
 	console.log( "update function ");
-	Coffeeshop.find( req.params.coffeeshop_id, fuction( err, coffeeshop ){
+	Coffeeshop.find( req.params.coffeeshop_id, function( err, coffeeshop ){
 		if ( err ) {
 			console.log( "error");
 			res.json( coffeeshop );

@@ -6,23 +6,20 @@
 //===================
 var express 			= require( 'express' )
 var apiRouter 			= express.Router()
-var coffeeshopsController 		= require( '../controllers/coffeeshopsController' )
-var Coffeeshop				= require( '../models/coffeeshop' )
+var coffeeshopsController 		= require( '../controllers/coffeeshopsController.js' )
+var Coffeeshop				= require( '../models/coffeeshop.js' )
 
 
 //ROUTING FUNCTIONS
 //=================
-apiRouter.use(function(req,res,next){
-	// if not 
-})
 
 //index get for api router 
-apiRouter.route( '/coffeeshop' )
+apiRouter.route( '/coffeeshops' )
 	.get(coffeeshopsController.index)
-	.post(coffeeshopsController.create)
+	.post(coffeeshopsController.create);
 
 //get, update, delete specific pub_id
-apiRouter.route( '/coffeeshop/:coffeeshop_id' )
+apiRouter.route( '/coffeeshops/:coffeeshop_id' )
 	.get(coffeeshopsController.show)        
 	.put(coffeeshopsController.update)
 	.delete(coffeeshopsController.destroy)
