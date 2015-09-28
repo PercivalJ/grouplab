@@ -4,7 +4,7 @@
 
 //DECLARING VARIABLES
 //===================
-var Pub 	= require( '../models/pub' )
+var Pub 	= require( '../models/pub.js' )
 
 
 //CRUD FUNCTIONS
@@ -77,4 +77,4 @@ module.exports = {
 	show: show,
 	update: update,
 	destroy: destroy
-}
+};
